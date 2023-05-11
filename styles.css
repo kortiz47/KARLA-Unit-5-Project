@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  width: 100%;
+      font-family: 'Oswald', sans-serif;
+    background-color: #242222;
+    text-align: center;
+  color: white;
+    font-size: 20px;
+}
+
+img {
+    width: 400px;
+}
+.result{
+  display:none;
+}
+.gryffindor{
+  display: none;
+}
+.slytherin{
+  display: none;
+}
+.hufflepuff{
+  display: none;
+}
+.ravenclaw{
+  display: none;
+}
+.tryAgain{
+  display:none;
+}
