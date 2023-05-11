@@ -1,0 +1,114 @@
+<!DOCTYPE html> <html><head>
+        <title>[KARLA] Unit 5 Project</title>
+    <style>html, body {
+  height: 100%;
+  width: 100%;
+      font-family: 'Oswald', sans-serif;
+    background-color: #242222;
+    text-align: center;
+  color: white;
+    font-size: 20px;
+}
+
+img {
+    width: 400px;
+}
+.result{
+  display:none;
+}
+.gryffindor{
+  display: none;
+}
+.slytherin{
+  display: none;
+}
+.hufflepuff{
+  display: none;
+}
+.ravenclaw{
+  display: none;
+}
+.tryAgain{
+  display:none;
+}</style></head>
+    <body>
+        <div class="title">
+    <h1>Which Hogwarts House are you?</h1>
+    <img src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/06/Hogwarts-Houses-(1).jpg">
+  </div>
+  <div class="questions">
+    <h4>How many spells do you know?</h4>
+<!--     <input class="spells" placeholder="Write a number 0-5"> -->
+      <input class="spells" placeholder="Write a number 0-5">  
+    <h4>You have the opportunity to make a potion. Which potion do you make?</h4>
+    <input class="potions" placeholder="Love or Explosive">
+  </div>
+  <br>
+  <button>Submit!</button>
+  <br>      
+
+  <div class="result">
+    this is where the user will see their quiz result!
+  </div>
+  <!-- Choose Next Level Feature - Lesson 5.2 - Add pictures for user results -->
+  <div class="gryffindor">
+    <img src="https://m.media-amazon.com/images/I/71qheAe+f6L.jpg">
+  </div>
+  <div class="slytherin">
+    <img src="https://m.media-amazon.com/images/I/71jTE5obH-L.jpg">
+  </div>
+  <div class="hufflepuff">
+    <img src="https://www.yourwdwstore.net/assets/images/3/30000/2000/100/32178.jpg">
+  </div>
+  <div class="ravenclaw">
+    <img src="https://m.media-amazon.com/images/I/61iys32RuAL._AC_SL1200_.jpg">
+  </div>
+  <div>
+    <img class="tryAgain" src="https://static.vecteezy.com/system/resources/previews/011/188/608/original/try-again-text-symbol-stamp-red-rubber-stamp-sticker-icon-symbolizing-trying-again-persistence-and-determination-concept-design-vector.jpg">
+  </div>
+    
+
+<script>
+/*__POPCODESTART__*/
+//Store each image result/result text in a variable
+var gryffindor = document.querySelector(".gryffindor");
+var ravenclaw = document.querySelector(".ravenclaw");
+var slytherin = document.querySelector(".slytherin");
+var hufflepuff = document.querySelector(".hufflepuff");
+var tryAgain = document.querySelector(".tryAgain");
+var results = document.querySelector(".result"); //Store the <button> as a variable in JavaScript - Lesson 5.2
+
+var button = document.querySelector("button"); //Write a click handler
+
+button.onclick = function () {
+  //Store each <input> as a variable in JavaScript - Lesson 5.3
+  var spellsInput = document.querySelector(".spells").value;
+  var potionInput = document.querySelector(".potions").value; //Conditional for Gryffindor House
+
+  if (spellsInput >= 3 && spellsInput <= 5 && (potionInput === "Explosive" || potionInput === "explosive")) {
+    results.style.display = "block";
+    results.innerHTML = "You know " + spellsInput + " spells and would rather make a " + potionInput + " potion. Therefore, you are a Gryffindor!";
+    gryffindor.style.display = "block";
+  } //Conditional for Ravenclaw House
+  else if (spellsInput >= 3 && spellsInput <= 5 && (potionInput === "Love" || potionInput === "love")) {
+      results.style.display = "block";
+      results.innerHTML = "You know " + spellsInput + " spells and would rather make a " + potionInput + " potion. Therefore, you are a Ravenclaw!";
+      ravenclaw.style.display = "block";
+    } //Conditional for Hufflepuff House
+    else if (spellsInput >= 0 && spellsInput <= 2 && (potionInput === "Love" || potionInput === "love")) {
+        results.style.display = "block";
+        results.innerHTML = "You know " + spellsInput + " spells and would rather make a " + potionInput + " potion. Therefore, you are a Hufflepuff!";
+        hufflepuff.style.display = "block";
+      } //Conditional for Slytherin House
+      else if (spellsInput >= 0 && spellsInput <= 2 && (potionInput === "Explosive" || potionInput === "explosive")) {
+          results.style.display = "block";
+          results.innerHTML = "You know " + spellsInput + " spells and would rather make a " + potionInput + " potion. Therefore, you are a Slytherin!";
+          slytherin.style.display = "block";
+        } //Else Conditional
+        else {
+            results.style.display = "block";
+            results.innerHTML = "TRY AGAIN - your responses do not match our possible answers";
+            tryAgain.style.display = "block";
+          }
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbImdyeWZmaW5kb3IiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJyYXZlbmNsYXciLCJzbHl0aGVyaW4iLCJodWZmbGVwdWZmIiwidHJ5QWdhaW4iLCJyZXN1bHRzIiwiYnV0dG9uIiwib25jbGljayIsInNwZWxsc0lucHV0IiwidmFsdWUiLCJwb3Rpb25JbnB1dCIsInN0eWxlIiwiZGlzcGxheSIsImlubmVySFRNTCJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxJQUFJQSxVQUFVLEdBQUNDLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixhQUF2QixDQUFmO0FBQ0EsSUFBSUMsU0FBUyxHQUFDRixRQUFRLENBQUNDLGFBQVQsQ0FBdUIsWUFBdkIsQ0FBZDtBQUNBLElBQUlFLFNBQVMsR0FBQ0gsUUFBUSxDQUFDQyxhQUFULENBQXVCLFlBQXZCLENBQWQ7QUFDQSxJQUFJRyxVQUFVLEdBQUNKLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixhQUF2QixDQUFmO0FBQ0EsSUFBSUksUUFBUSxHQUFDTCxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsV0FBdkIsQ0FBYjtBQUNBLElBQUlLLE9BQU8sR0FBQ04sUUFBUSxDQUFDQyxhQUFULENBQXVCLFNBQXZCLENBQVosQyxDQUNBOztBQUNBLElBQUlNLE1BQU0sR0FBR1AsUUFBUSxDQUFDQyxhQUFULENBQXVCLFFBQXZCLENBQWIsQyxDQUNBOztBQUNBTSxNQUFNLENBQUNDLE9BQVAsR0FBZSxZQUFVO0FBQ3pCO0FBQ0EsTUFBSUMsV0FBVyxHQUFHVCxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsU0FBdkIsRUFBa0NTLEtBQXBEO0FBQ0EsTUFBSUMsV0FBVyxHQUFHWCxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsVUFBdkIsRUFBbUNTLEtBQXJELENBSHlCLENBSXZCOztBQUNBLE1BQUlELFdBQVcsSUFBSSxDQUFmLElBQW9CQSxXQUFXLElBQUUsQ0FBbEMsS0FBeUNFLFdBQVcsS0FBSSxXQUFmLElBQW9DQSxXQUFXLEtBQUcsV0FBM0YsQ0FBSCxFQUEyRztBQUN6R0wsSUFBQUEsT0FBTyxDQUFDTSxLQUFSLENBQWNDLE9BQWQsR0FBc0IsT0FBdEI7QUFDQVAsSUFBQUEsT0FBTyxDQUFDUSxTQUFSLEdBQW9CLGNBQWFMLFdBQWIsR0FBMEIsa0NBQTFCLEdBQTZERSxXQUE3RCxHQUEwRSwyQ0FBOUY7QUFDQVosSUFBQUEsVUFBVSxDQUFDYSxLQUFYLENBQWlCQyxPQUFqQixHQUF5QixPQUF6QjtBQUNELEdBSkQsQ0FLQTtBQUxBLE9BTUssSUFBSUosV0FBVyxJQUFJLENBQWYsSUFBb0JBLFdBQVcsSUFBRSxDQUFsQyxLQUF5Q0UsV0FBVyxLQUFJLE1BQWYsSUFBK0JBLFdBQVcsS0FBRyxNQUF0RixDQUFILEVBQWlHO0FBQ3BHTCxNQUFBQSxPQUFPLENBQUNNLEtBQVIsQ0FBY0MsT0FBZCxHQUFzQixPQUF0QjtBQUNBUCxNQUFBQSxPQUFPLENBQUNRLFNBQVIsR0FBb0IsY0FBYUwsV0FBYixHQUEwQixrQ0FBMUIsR0FBNkRFLFdBQTdELEdBQTBFLDBDQUE5RjtBQUNBVCxNQUFBQSxTQUFTLENBQUNVLEtBQVYsQ0FBZ0JDLE9BQWhCLEdBQXdCLE9BQXhCO0FBQ0QsS0FKSSxDQUtMO0FBTEssU0FNQSxJQUFJSixXQUFXLElBQUksQ0FBZixJQUFvQkEsV0FBVyxJQUFFLENBQWxDLEtBQXlDRSxXQUFXLEtBQUksTUFBZixJQUErQkEsV0FBVyxLQUFHLE1BQXRGLENBQUgsRUFBaUc7QUFDcEdMLFFBQUFBLE9BQU8sQ0FBQ00sS0FBUixDQUFjQyxPQUFkLEdBQXNCLE9BQXRCO0FBQ0FQLFFBQUFBLE9BQU8sQ0FBQ1EsU0FBUixHQUFvQixjQUFhTCxXQUFiLEdBQTBCLGtDQUExQixHQUE2REUsV0FBN0QsR0FBMEUsMkNBQTlGO0FBQ0FQLFFBQUFBLFVBQVUsQ0FBQ1EsS0FBWCxDQUFpQkMsT0FBakIsR0FBeUIsT0FBekI7QUFDRCxPQUpJLENBS0w7QUFMSyxXQU1BLElBQUlKLFdBQVcsSUFBSSxDQUFmLElBQW9CQSxXQUFXLElBQUUsQ0FBbEMsS0FBeUNFLFdBQVcsS0FBSSxXQUFmLElBQW9DQSxXQUFXLEtBQUcsV0FBM0YsQ0FBSCxFQUEyRztBQUM5R0wsVUFBQUEsT0FBTyxDQUFDTSxLQUFSLENBQWNDLE9BQWQsR0FBc0IsT0FBdEI7QUFDQVAsVUFBQUEsT0FBTyxDQUFDUSxTQUFSLEdBQW9CLGNBQWFMLFdBQWIsR0FBMEIsa0NBQTFCLEdBQTZERSxXQUE3RCxHQUEwRSwwQ0FBOUY7QUFDQVIsVUFBQUEsU0FBUyxDQUFDUyxLQUFWLENBQWdCQyxPQUFoQixHQUF3QixPQUF4QjtBQUNELFNBSkksQ0FLTDtBQUxLLGFBTUQ7QUFDRlAsWUFBQUEsT0FBTyxDQUFDTSxLQUFSLENBQWNDLE9BQWQsR0FBc0IsT0FBdEI7QUFDQVAsWUFBQUEsT0FBTyxDQUFDUSxTQUFSLEdBQW9CLDhEQUFwQjtBQUNBVCxZQUFBQSxRQUFRLENBQUNPLEtBQVQsQ0FBZUMsT0FBZixHQUF1QixPQUF2QjtBQUVEO0FBQ0YsQ0FuQ0QiLCJzb3VyY2VzQ29udGVudCI6WyIvL1N0b3JlIGVhY2ggaW1hZ2UgcmVzdWx0L3Jlc3VsdCB0ZXh0IGluIGEgdmFyaWFibGVcbmxldCBncnlmZmluZG9yPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuZ3J5ZmZpbmRvclwiKTtcbmxldCByYXZlbmNsYXc9ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yYXZlbmNsYXdcIik7XG5sZXQgc2x5dGhlcmluPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuc2x5dGhlcmluXCIpO1xubGV0IGh1ZmZsZXB1ZmY9ZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5odWZmbGVwdWZmXCIpO1xubGV0IHRyeUFnYWluPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIudHJ5QWdhaW5cIik7XG5sZXQgcmVzdWx0cz1kb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJlc3VsdFwiKTtcbi8vU3RvcmUgdGhlIDxidXR0b24+IGFzIGEgdmFyaWFibGUgaW4gSmF2YVNjcmlwdCAtIExlc3NvbiA1LjJcbmxldCBidXR0b24gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiYnV0dG9uXCIpO1xuLy9Xcml0ZSBhIGNsaWNrIGhhbmRsZXJcbmJ1dHRvbi5vbmNsaWNrPWZ1bmN0aW9uKCl7XG4vL1N0b3JlIGVhY2ggPGlucHV0PiBhcyBhIHZhcmlhYmxlIGluIEphdmFTY3JpcHQgLSBMZXNzb24gNS4zXG5sZXQgc3BlbGxzSW5wdXQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnNwZWxsc1wiKS52YWx1ZTtcbmxldCBwb3Rpb25JbnB1dCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucG90aW9uc1wiKS52YWx1ZTtcbiAgLy9Db25kaXRpb25hbCBmb3IgR3J5ZmZpbmRvciBIb3VzZVxuICBpZigoc3BlbGxzSW5wdXQgPj0gMyAmJiBzcGVsbHNJbnB1dDw9NSkgJiYgKHBvdGlvbklucHV0ID09PVwiRXhwbG9zaXZlXCIgfHwgICAgICAgcG90aW9uSW5wdXQ9PT1cImV4cGxvc2l2ZVwiKSl7XG4gICAgcmVzdWx0cy5zdHlsZS5kaXNwbGF5PVwiYmxvY2tcIjtcbiAgICByZXN1bHRzLmlubmVySFRNTCA9IFwiWW91IGtub3cgXCIgK3NwZWxsc0lucHV0KyBcIiBzcGVsbHMgYW5kIHdvdWxkIHJhdGhlciBtYWtlIGEgXCIrcG90aW9uSW5wdXQrIFwiIHBvdGlvbi4gVGhlcmVmb3JlLCB5b3UgYXJlIGEgR3J5ZmZpbmRvciFcIjtcbiAgICBncnlmZmluZG9yLnN0eWxlLmRpc3BsYXk9XCJibG9ja1wiO1xuICB9XG4gIC8vQ29uZGl0aW9uYWwgZm9yIFJhdmVuY2xhdyBIb3VzZVxuICBlbHNlIGlmKChzcGVsbHNJbnB1dCA+PSAzICYmIHNwZWxsc0lucHV0PD01KSAmJiAocG90aW9uSW5wdXQgPT09XCJMb3ZlXCIgfHwgICAgICAgcG90aW9uSW5wdXQ9PT1cImxvdmVcIikpe1xuICAgIHJlc3VsdHMuc3R5bGUuZGlzcGxheT1cImJsb2NrXCI7XG4gICAgcmVzdWx0cy5pbm5lckhUTUwgPSBcIllvdSBrbm93IFwiICtzcGVsbHNJbnB1dCsgXCIgc3BlbGxzIGFuZCB3b3VsZCByYXRoZXIgbWFrZSBhIFwiK3BvdGlvbklucHV0KyBcIiBwb3Rpb24uIFRoZXJlZm9yZSwgeW91IGFyZSBhIFJhdmVuY2xhdyFcIjtcbiAgICByYXZlbmNsYXcuc3R5bGUuZGlzcGxheT1cImJsb2NrXCI7XG4gIH1cbiAgLy9Db25kaXRpb25hbCBmb3IgSHVmZmxlcHVmZiBIb3VzZVxuICBlbHNlIGlmKChzcGVsbHNJbnB1dCA+PSAwICYmIHNwZWxsc0lucHV0PD0yKSAmJiAocG90aW9uSW5wdXQgPT09XCJMb3ZlXCIgfHwgICAgICAgcG90aW9uSW5wdXQ9PT1cImxvdmVcIikpe1xuICAgIHJlc3VsdHMuc3R5bGUuZGlzcGxheT1cImJsb2NrXCI7XG4gICAgcmVzdWx0cy5pbm5lckhUTUwgPSBcIllvdSBrbm93IFwiICtzcGVsbHNJbnB1dCsgXCIgc3BlbGxzIGFuZCB3b3VsZCByYXRoZXIgbWFrZSBhIFwiK3BvdGlvbklucHV0KyBcIiBwb3Rpb24uIFRoZXJlZm9yZSwgeW91IGFyZSBhIEh1ZmZsZXB1ZmYhXCI7XG4gICAgaHVmZmxlcHVmZi5zdHlsZS5kaXNwbGF5PVwiYmxvY2tcIjtcbiAgfVxuICAvL0NvbmRpdGlvbmFsIGZvciBTbHl0aGVyaW4gSG91c2VcbiAgZWxzZSBpZigoc3BlbGxzSW5wdXQgPj0gMCAmJiBzcGVsbHNJbnB1dDw9MikgJiYgKHBvdGlvbklucHV0ID09PVwiRXhwbG9zaXZlXCIgfHwgICAgICAgcG90aW9uSW5wdXQ9PT1cImV4cGxvc2l2ZVwiKSl7XG4gICAgcmVzdWx0cy5zdHlsZS5kaXNwbGF5PVwiYmxvY2tcIjtcbiAgICByZXN1bHRzLmlubmVySFRNTCA9IFwiWW91IGtub3cgXCIgK3NwZWxsc0lucHV0KyBcIiBzcGVsbHMgYW5kIHdvdWxkIHJhdGhlciBtYWtlIGEgXCIrcG90aW9uSW5wdXQrIFwiIHBvdGlvbi4gVGhlcmVmb3JlLCB5b3UgYXJlIGEgU2x5dGhlcmluIVwiO1xuICAgIHNseXRoZXJpbi5zdHlsZS5kaXNwbGF5PVwiYmxvY2tcIjtcbiAgfVxuICAvL0Vsc2UgQ29uZGl0aW9uYWxcbiAgZWxzZXtcbiAgICByZXN1bHRzLnN0eWxlLmRpc3BsYXk9XCJibG9ja1wiO1xuICAgIHJlc3VsdHMuaW5uZXJIVE1MID0gXCJUUlkgQUdBSU4gLSB5b3VyIHJlc3BvbnNlcyBkbyBub3QgbWF0Y2ggb3VyIHBvc3NpYmxlIGFuc3dlcnNcIjtcbiAgICB0cnlBZ2Fpbi5zdHlsZS5kaXNwbGF5PVwiYmxvY2tcIjtcbiAgICBcbiAgfVxufTsiXX0=</script></body></html>
